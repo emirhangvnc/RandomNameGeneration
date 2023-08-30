@@ -1,0 +1,32 @@
+﻿@model EntityLayer.AnimalName // Model'i düzenleyin
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h2>Rasgele Evcil Hayvan İsmi Önerme</h2>
+            <button id="btnOner" class="btn btn-primary">İsim Öner</button>
+            <div id="onerilenIsimResult" class="mt-3"></div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $("#btnOner").click(function () {
+                $.ajax({
+                    url: '/AnimalName/RandomAnimalName',
+                    type: "POST",
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    success: function (data) {
+                        $("#onerilenIsimResult").html(data.randomAnimalName.name);
+                    },
+                    error: function () {
+                        console.log("İsim önerilirken bir hata oluştu.");
+                    }
+                });
+            });
+        });
+    </script>
+}

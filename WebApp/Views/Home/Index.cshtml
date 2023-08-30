@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h2>Hoş Geldiniz!</h2>
+            <p>Bu sayfada çocuklar ve evcil hayvanlar için rasgele isim önerileri bulabilirsiniz.</p>
+            <ul>
+                <li><a href="@Url.Action("Index", "ChildName")">Çocuk İsim Öner</a></li>
+                <li><a href="@Url.Action("Index", "AnimalName")">Evcil Hayvan İsim Öner</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
